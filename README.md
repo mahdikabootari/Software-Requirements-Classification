@@ -13,8 +13,8 @@ A range of deep learning models and embedding techniques have been evaluated to 
 
 The experiments were conducted on three publicly available datasets:
 
-- **PROMISE**
-- **Kaggle Fult Pron SRS**
+- **PROMISE** 
+- **Kaggle Fult Pron SRS** – [Hosted on Kaggle](https://www.kaggle.com/datasets/corpus4panwo/fault-prone-srs-dataset)
 - **FNFC** – [Hosted on HuggingFace](https://huggingface.co/datasets/MSHD-IAU/FNFC-Functional_Non-Functional_Calssification/tree/main)
 
 All datasets are included in the repository under relevant folders.
@@ -102,27 +102,98 @@ python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-### 3. Install dependencies
+## ▶️ Running the Experiments
+
+All experiments in this project are implemented as **Jupyter Notebooks**. To run the project:
+
+### ✅ Step 1: Install Dependencies
+
+First, install all required Python libraries:
+
 ```bash
 pip install -r requirements.txt
 ```
 
+Or manually:
+
+```bash
+pip install jupyter tensorflow keras scikit-learn torch transformers gensim pandas numpy matplotlib seaborn
+```
+
 ---
 
-## 📥 Download GloVe Embeddings
+### ✅ Step 2: Launch Jupyter
 
-Due to file size, the GloVe embeddings are not included in this repository.
+From the root directory of the project, launch Jupyter Notebook:
 
-➡️ Download `glove.42B.300d.txt` (1.9GB) from:  
-🔗 [https://nlp.stanford.edu/data/glove.42B.300d.zip](https://nlp.stanford.edu/data/glove.42B.300d.zip)
+```bash
+jupyter notebook
+```
 
-After downloading and extracting, place the file in:
+Then open the desired notebook from one of the model folders, e.g.:
+
+```
+bilstm-glove/experiments.ipynb
+```
+
+---
+
+### ✅ Step 3: Dataset Configuration
+
+Each notebook is designed to work with one dataset at a time.  
+The following datasets are supported:
+
+- `PROMISE`
+- `Kaggle Fult Pron SRS`
+- `FNFC`
+
+To run the notebook with a different dataset, **you must update the dataset file path inside the notebook**.
+
+Look for a code block similar to this:
+
+```python
+df = pd.read_csv("data/fnfc/fnfc_cleaned.csv")
+```
+
+And change it to:
+
+```python
+df = pd.read_csv("data/promise/promise_dataset.csv")
+```
+
+Or:
+
+```python
+df = pd.read_csv("data/kaggle_fult_srs/kaggle_cleaned.csv")
+```
+
+⚠️ Make sure the file structure and column names match the expected format in the notebook.
+
+---
+
+### ✅ Step 4: GloVe Embedding Setup (if used)
+
+If you're using GloVe embeddings (e.g. in `bilstm-glove`), make sure you have downloaded the following file:
+
+🔗 [Download GloVe.42B.300d.txt](https://nlp.stanford.edu/data/glove.42B.300d.zip)
+
+Then extract and place the file here:
 
 ```
 embeddings/glove.42B.300d.txt
 ```
 
+The notebook will automatically load the file if it's in the correct path.
+
 ---
+
+### 📝 Notes
+
+- All notebooks are self-contained and include training, validation, and evaluation code.
+- You can easily modify the architecture, embeddings, or dataset inside the notebook.
+- Models can be trained on both CPU and GPU.
+- Results such as accuracy, F1-score, and confusion matrix are displayed at the end of each run.
+
 
 ## 🚀 Running the Experiments
 
@@ -179,5 +250,3 @@ Created by **Mahdi Kabootari**
 🔗 [GitHub Profile](https://github.com/mahdikabootari)
 
 ---
-
-## 📄 License
