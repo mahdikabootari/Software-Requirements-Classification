@@ -245,8 +245,12 @@ pip install -r requirements.txt
 
 ## 📧 Contact
 
-Created by **Mahdi Kabootari**  
+Created by **Mahdi Kabootari & Younes Abdeahad**  
 📬 kabootarimahdi2@gmail.com  
 🔗 [GitHub Profile](https://github.com/mahdikabootari)
+
+📬 abdeahad.y3@gmail.com  
+🔗 [GitHub Profile](https://github.com/Younes-Abdeahad)
+
 
 ---
